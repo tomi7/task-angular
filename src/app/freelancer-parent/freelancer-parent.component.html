@@ -1,0 +1,61 @@
+<button type="button" (click)="goBack()">Back to dashboard</button>
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Freelancer form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="modelFreelancer.name" name="name" #name="ngModel"/>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" maxlength="8" (keypress)="validateNo($event)" class="form-control" id="phone" required [(ngModel)]="modelFreelancer.phone" name="phone" #phone="ngModel"/>
+        <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+          Phone is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Skill</label>
+        <input type="text" class="form-control" id="skill" required [(ngModel)]="modelFreelancer.skill" name="skill" #skill="ngModel"/>
+        <div [hidden]="skill.valid || skill.pristine" class="alert alert-danger">
+          Skill is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Notes</label>
+        <input type="text" class="form-control" id="notes" required [(ngModel)]="modelFreelancer.notes" name="notes" #notes="ngModel"/>
+        <div [hidden]="notes.valid || notes.pristine" class="alert alert-danger">
+          Notes is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">
+        Submit
+      </button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>Berikut adalah data yang sudah anda kirim</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9">{{modelFreelancer.name}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Phone</div>
+      <div class="col-xs-9">{{modelFreelancer.phone}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Skill</div>
+      <div class="col-xs-9">{{modelFreelancer.skill}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Notes</div>
+      <div class="col-xs-9">{{modelFreelancer.notes}}</div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-secondary" (click)="submitted=false">Back</button>
+  </div>
+</div>
+<app-freelancer-child [freelancers]="freelancers"></app-freelancer-child>

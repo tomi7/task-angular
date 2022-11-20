@@ -1,0 +1,29 @@
+<div *ngIf="freelancer; else second" class="my-3 p-3 bg-body rounded shadow-sm">
+  <h6 class="border-bottom pb-2 mb-0">Detail Contact</h6>
+  <div class="d-flex text-muted pt-3">
+    <p class="pb-3 mb-0 small lh-sm border-bottom">
+      <strong class="d-block text-gray-dark">Name</strong>
+      {{freelancer.name | uppercase}}
+    </p>
+  </div>
+  <div class="d-flex text-muted pt-3">
+    <p class="pb-3 mb-0 small lh-sm border-bottom">
+      <strong class="d-block text-gray-dark">Phone</strong>
+      {{freelancer.phone | phone}}
+    </p>
+  </div>
+  <div class="d-flex text-muted pt-3">
+    <p class="pb-3 mb-0 small lh-sm border-bottom">
+      <strong class="d-block text-gray-dark">Skill</strong>
+      {{freelancer.skill}}  
+    </p>
+  </div>
+  <div class="d-flex text-muted pt-3">
+    <p class="pb-3 mb-0 small lh-sm border-bottom">
+      <strong class="d-block text-gray-dark">Notes</strong>
+      {{freelancer.notes}}  
+    </p>
+  </div>
+  <button type="button" (click)="goBack()">back to previous page</button>
+</div>
+<ng-template #second>Data kosong</ng-template>

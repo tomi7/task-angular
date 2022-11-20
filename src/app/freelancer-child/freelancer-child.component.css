@@ -1,0 +1,23 @@
+.bg-biru{
+  background-color: blue;
+  color: wheat;
+}
+
+.bg-merah{
+  background-color: red;
+  color: wheat;
+}
+
+a {
+  text-decoration: none;
+  color: wheat;
+}
+
+.item{
+  text-align: center;
+  background-color: lightgray;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
